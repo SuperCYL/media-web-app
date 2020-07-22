@@ -8,12 +8,14 @@ class App extends Component {
     super(props);
     this.state = {
       phoneVal:"",
-      codeVal:""
+      codeVal:"",
+      isTime:false,
+      count:60
     };
     this.phoneNumEvent = this.phoneNumEvent.bind(this);
     this.codeEvent = this.codeEvent.bind(this);
     this.loginEvent = this.loginEvent.bind(this);
-    // this.getLoginCode = this.getLoginCode.bind(this);
+    this.getLoginCode = this.getLoginCode.bind(this);
   }
   phoneNumEvent(){
     alert(2222)
@@ -25,9 +27,35 @@ class App extends Component {
     alert(1111)
   }
   getLoginCode(){
-   
+    this.setState({
+      isTime:true
+    });
+    
+    let interval = setInterval(function(){
+      this.setState({
+        count:this.state.count-1
+      });
+      // if(this.state.count == 0){
+      //   this.setState({
+      //     isTime:false
+      //   });
+      //   clearInterval(interval);
+      // }else{
+      //   this.setState({
+      //     count:this.state.count-1
+      //   });
+      // }
+    },1000);
+    
   }
   render() {
+    let text = null;
+    if(this.state.isTime){
+      text = <span className="code code_time">{this.state.count}s</span>
+    }else{
+      text = <span className="code" onClick={this.getLoginCode}>获取验证码</span>
+    }
+
     return (
       <div className="App">
         <div className="cont">
@@ -42,7 +70,9 @@ class App extends Component {
               <li>
                 <span className="iconfont iconyanzhengma"></span>
                 <input placeholder="请输入验证码" value={this.state.codeVal} onChange={this.codeEvent}  className="loginCode"/>
-                <span className="code" onClick={this.getLoginCode}>获取验证码</span>
+
+                {text}
+                
               </li>
             </ul>
             <div className="login" onClick={this.loginEvent}>登录</div>

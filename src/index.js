@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './theme.scss';
+import './assert/css/theme.scss';
 
 import APP from './App'
 

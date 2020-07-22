@@ -1,0 +1,36 @@
+.App{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color: #fff;
+}
+.App .cont{
+    padding:15px;
+}
+.App ul{
+    margin-top:50px;
+}
+.App ul li{
+    height:44px;
+    line-height: 44px;
+    position: relative;
+    border-bottom:1px solid #E5E5E5;
+}
+.App .login{
+    margin-top:36px;
+}
+.App input{
+    display: block;
+    margin-left:30px;
+    height:42px;
+    line-height: 42px;
+    border:none;
+}
+.App .phoneNum{
+    width:60%;
+}
+.App .loginCode{
+    width:50%;
+}

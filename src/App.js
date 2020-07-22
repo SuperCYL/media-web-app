@@ -27,27 +27,30 @@ class App extends Component {
     alert(1111)
   }
   getLoginCode(){
-    this.setState({
-      isTime:true
-    });
-    
-    let interval = setInterval(function(){
-      this.setState({
-        count:this.state.count-1
-      });
-      // if(this.state.count == 0){
-      //   this.setState({
-      //     isTime:false
-      //   });
-      //   clearInterval(interval);
-      // }else{
-      //   this.setState({
-      //     count:this.state.count-1
-      //   });
-      // }
-    },1000);
-    
+    this.codeSetInterval();
   }
+
+  codeSetInterval() {
+    this.setState({isTime:true});
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  tick() {
+    this.setState({
+      count: this.state.count-1
+    });
+    if(this.state.count == 1){
+      this.componentWillUnmount();
+      this.setState({isTime:false,count:60});
+    }
+  }
+
   render() {
     let text = null;
     if(this.state.isTime){

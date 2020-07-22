@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { BrowserRouter as Router,Route} from 'react-router-dom';
+import { BrowserRouter as Router,Route,Redirect} from 'react-router-dom';
 
 
 /*********组件引用********/
@@ -13,7 +13,8 @@ class App extends Component {
 
     return (
       <Router>
-        <Route path="/" component={Login}></Route>
+        <Route exact path="/" render={()=>(<Redirect to="/login"/>)}></Route>
+        <Route path="/login" component={Login}></Route>
         <Route path="/InputFile" component={InputFile}></Route>
       </Router>
     )

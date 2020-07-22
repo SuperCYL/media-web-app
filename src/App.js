@@ -27,7 +27,7 @@ class App extends Component {
     })
   }
   loginEvent(){
-    alert(1111)
+    this.props.history.push('/InputFile');
   }
   getLoginCode(){
     this.codeSetInterval();

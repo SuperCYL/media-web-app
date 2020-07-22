@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import { Button} from 'antd-mobile';
 
 import './app.scss';
 
@@ -25,17 +24,17 @@ class App extends Component {
       <div className="App">
         <div className="cont">
           <header>
-            <h1>欢迎登录,</h1>
-            <h1>社会治理融媒云投稿平台</h1>
+            <div className="tit1">欢迎登录,</div>
+            <div className="tit2">社会治理融媒云投稿平台</div>
             <ul>
               <li>
                 <input placeholder="请输入手机号码" value={this.state.phoneVal} onInput={this.phoneNumEvent} className="phoneNum"/>
               </li>
               <li>
-              <input placeholder="请输入验证码" value={this.state.codeVal} className="loginCode"/>
+              <input placeholder="请输入验证码" value={this.state.codeVal}  className="loginCode"/>
               </li>
             </ul>
-            <Button type="primary" className="login" onClick={this.loginEvent}>登录</Button>
+            <div className="login" onClick={this.loginEvent}>登录</div>
           </header>
         </div>
         

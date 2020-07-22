@@ -7,25 +7,34 @@
     background-color: #fff;
 }
 .App .cont{
-    padding:15px;
+    padding:67px;
 }
 .App ul{
-    margin-top:50px;
+    margin-top:221px;
 }
 .App ul li{
-    height:44px;
-    line-height: 44px;
+    width:622px;
+    height:100px;
+    line-height: 100px;
     position: relative;
     border-bottom:1px solid #E5E5E5;
 }
 .App .login{
-    margin-top:36px;
+    width:622px;
+    height:88px;
+    line-height: 88px;
+    background: #028AFC;
+    margin-top:52px;
+    font-size: 34px;
+    text-align: center;
+    color:#fff;
+    border-radius: 50px;
 }
 .App input{
     display: block;
-    margin-left:30px;
-    height:42px;
-    line-height: 42px;
+    margin-left:50px;
+    height:95px;
+    line-height: 95px;
     border:none;
 }
 .App .phoneNum{
@@ -33,4 +42,11 @@
 }
 .App .loginCode{
     width:50%;
+}
+.App .tit1{
+    font-size: 60px;
+}
+.App .tit2{
+    font-size: 52px;
+    margin-top:50px;
 }

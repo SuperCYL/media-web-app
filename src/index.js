@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 
-
+import "lib-flexible"
 import 'antd-mobile/dist/antd-mobile.css';
 
 ReactDOM.render(

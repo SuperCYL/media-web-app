@@ -8,16 +8,20 @@ ul li{
 input::-webkit-input-placeholder { 
     /* WebKit browsers */ 
     color: #c2c2c2; 
+    font-size: 30px;
   } 
   input:-moz-placeholder { 
     /* Mozilla Firefox 4 to 18 */ 
     color: #c2c2c2; 
+    font-size: 30px;
   } 
   input::-moz-placeholder { 
     /* Mozilla Firefox 19+ */ 
     color: #c2c2c2; 
+    font-size: 30px;
   } 
   input:-ms-input-placeholder { 
     /* Internet Explorer 10+ */ 
     color: #c2c2c2; 
+    font-size: 30px;
   }

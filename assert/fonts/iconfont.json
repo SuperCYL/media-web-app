@@ -1,0 +1,23 @@
+{
+  "id": "1959414",
+  "name": "media-web-app",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "融媒云移动端字体图标",
+  "glyphs": [
+    {
+      "icon_id": "15969484",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e717",
+      "unicode_decimal": 59159
+    },
+    {
+      "icon_id": "15969485",
+      "name": "验证码",
+      "font_class": "yanzhengma",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    }
+  ]
+}

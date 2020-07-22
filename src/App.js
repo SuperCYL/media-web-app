@@ -11,13 +11,21 @@ class App extends Component {
       codeVal:""
     };
     this.phoneNumEvent = this.phoneNumEvent.bind(this);
+    this.codeEvent = this.codeEvent.bind(this);
     this.loginEvent = this.loginEvent.bind(this);
+    // this.getLoginCode = this.getLoginCode.bind(this);
   }
   phoneNumEvent(){
     alert(2222)
   }
+  codeEvent(){
+    
+  }
   loginEvent(){
     alert(1111)
+  }
+  getLoginCode(){
+   
   }
   render() {
     return (
@@ -28,10 +36,13 @@ class App extends Component {
             <div className="tit2">社会治理融媒云投稿平台</div>
             <ul>
               <li>
-                <input placeholder="请输入手机号码" value={this.state.phoneVal} onInput={this.phoneNumEvent} className="phoneNum"/>
+                <span className="iconfont iconshouji"></span>
+                <input placeholder="请输入手机号码" value={this.state.phoneVal} onChange={this.phoneNumEvent} className="phoneNum"/>
               </li>
               <li>
-              <input placeholder="请输入验证码" value={this.state.codeVal}  className="loginCode"/>
+                <span className="iconfont iconyanzhengma"></span>
+                <input placeholder="请输入验证码" value={this.state.codeVal} onChange={this.codeEvent}  className="loginCode"/>
+                <span className="code" onClick={this.getLoginCode}>获取验证码</span>
               </li>
             </ul>
             <div className="login" onClick={this.loginEvent}>登录</div>

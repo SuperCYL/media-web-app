@@ -19,6 +19,13 @@
     position: relative;
     border-bottom:1px solid #E5E5E5;
 }
+.App ul li .iconfont{
+    width:24px;
+    height:38px;
+    position: absolute;
+    top:10px;
+    left:5px;
+}
 .App .login{
     width:622px;
     height:88px;
@@ -49,4 +56,15 @@
 .App .tit2{
     font-size: 52px;
     margin-top:50px;
+}
+    
+.App ul li .code{
+    position: absolute;
+    right:0;
+    top:5px;
+    font-size:28px;
+    color: #C2C2C2;
+}
+.App ul li .code_time{
+    color:#03A5FF
 }

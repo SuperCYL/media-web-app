@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-
 import './app.scss';
 
 
@@ -17,11 +16,15 @@ class App extends Component {
     this.loginEvent = this.loginEvent.bind(this);
     this.getLoginCode = this.getLoginCode.bind(this);
   }
-  phoneNumEvent(){
-    alert(2222)
+  phoneNumEvent(e){
+    this.setState({
+      phoneVal:e.target.value
+    })
   }
-  codeEvent(){
-    
+  codeEvent(e){
+    this.setState({
+      codeVal:e.target.value
+    })
   }
   loginEvent(){
     alert(1111)
@@ -45,7 +48,7 @@ class App extends Component {
     this.setState({
       count: this.state.count-1
     });
-    if(this.state.count == 1){
+    if(this.state.count === 1){
       this.componentWillUnmount();
       this.setState({isTime:false,count:60});
     }

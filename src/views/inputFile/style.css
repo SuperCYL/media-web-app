@@ -28,7 +28,7 @@
 }
 .inputFile .am-list-item .am-list-line .am-list-extra{
     font-size: 32px;
-    color: #999999;
+    color: #333;
 }
 .inputFile .am-list-item .am-list-line .am-list-arrow{
     width:32px;
@@ -50,6 +50,12 @@
 .inputFile .draft .am-list-line .am-list-extra {
     color: #FF8406;
 }
-.inputFile .am-picker-popup-item{
+.am-picker-popup-item{
     font-size: 30px!important;
+}
+.am-picker-popup-header {
+    height:80px;
+}
+.am-picker-popup-body{
+    font-size: 30px;
 }

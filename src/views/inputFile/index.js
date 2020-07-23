@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import { NavBar,List,DatePicker,Picker} from 'antd-mobile';
-// import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
 import './style.css';
 

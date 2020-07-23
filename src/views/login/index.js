@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import './style.scss';
 import Api from '../../request/api'
+import { Toast} from 'antd-mobile';
 
 class Login extends Component {
   constructor(props){
@@ -35,7 +36,7 @@ class Login extends Component {
     let params = this.state.phoneVal;
     Api.getVerificationCode(params).then(res => {
       if (res.resp_code === 0) {
-          debugger;        
+        Toast.info('验证码发送成功,请注意查收', 3, null, false);
       }
     });
 

@@ -94,12 +94,6 @@ class InputFile extends Component {
                   
                 })
               }
-              
-
-              {/* <List className="my-list">
-                <Item wrap className="hadInputFile">今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？朋友圈堪比“赏春今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？</Item>
-                <Item className="draft" extra={'草稿'}>2020-09-30 12:30:30</Item>
-              </List> */}
 
             </div>
           

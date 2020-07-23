@@ -21,7 +21,9 @@ class InputFile extends Component {
           label: '已投稿',
           value: '2',
         },
-      ]
+      ],
+      submitTotal:"",
+      records:[]
     }
     
   }
@@ -38,6 +40,10 @@ class InputFile extends Component {
     Api.getRecordList(params).then(res => {
       if (res.resp_code === 0) {
         console.log(res.datas.data)
+        this.setState({
+          submitTotal:res.datas.submitTotal,
+          records:res.datas.data.records
+        })
       }
     });
 
@@ -73,19 +79,27 @@ class InputFile extends Component {
               </List>
 
               <List className="my-list">
-                <Item extra={'1231篇'}>累计发稿</Item>
-                <Item extra={'121篇'}>累计录用</Item>
+                <Item extra={this.state.submitTotal}>累计发稿</Item>
+                {/* <Item extra={'121篇'}>累计录用</Item> */}
               </List>
 
-              <List className="my-list">
-                <Item wrap className="hadInputFile">今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？朋友圈堪比“赏春今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？</Item>
-                <Item className="hadTime" extra={'已投稿'}>2020-09-30 12:30:30</Item>
-              </List>
+              {
+                this.state.records.map((v,i)=>{
+                  return(
+                    <List className="my-list" key={i}>
+                      <Item wrap className="hadInputFile">{v.manuTitle}</Item>
+                      <Item className={v.manuStatus===1?'draft':'hadTime'} extra={v.manuStatus===1?'草稿':'已投稿'}>{v.updateTime}</Item>
+                    </List>
+                  )
+                  
+                })
+              }
+              
 
-              <List className="my-list">
+              {/* <List className="my-list">
                 <Item wrap className="hadInputFile">今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？朋友圈堪比“赏春今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？</Item>
                 <Item className="draft" extra={'草稿'}>2020-09-30 12:30:30</Item>
-              </List>
+              </List> */}
 
             </div>
           

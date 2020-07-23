@@ -35,17 +35,17 @@ class Login extends Component {
     };
     var reg = 11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/;
     var reg1 = /^\d{4}$/;
-    if (this.state.phoneVal == "") {
+    if (this.state.phoneVal === "") {
       Toast.fail('手机号不能为空', 3, null, false);
     } else if (!reg.test(this.state.phoneVal)) {
       Toast.fail('手机号格式不正确', 3, null, false);
-    } else if (this.state.codeVal == "") {
+    } else if (this.state.codeVal === "") {
       Toast.fail('验证码不能为空', 3, null, false);
     } else if (!reg1.test(this.state.codeVal)) {
       Toast.fail('验证码格式不正确', 3, null, false);
     } else {
       Api.getCodeLogin(params).then(res => {
-        if (res.resp_code == 0) {
+        if (res.resp_code === 0) {
           localStorage.setItem("access_token", res.datas.access_token);
           localStorage.setItem("token_type", res.datas.token_type);
           localStorage.setItem("globalAccount", res.datas.globalAccount);

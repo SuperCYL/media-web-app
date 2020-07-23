@@ -1,0 +1,43 @@
+.inputFile{
+    background: #eeeeee!important;
+}
+.inputFile .am-navbar{
+    height:100px!important;
+    border-bottom: 1px solid #F0F0F0;
+}
+.inputFile .am-navbar-title{
+    color: #333;
+    font-size:36px;
+}
+.inputFile .am-navbar-light{
+    color:#333;
+}
+.inputFile .icongerensucai{
+    font-size: 38px;
+}
+.inputFile .my-list{
+    margin-top:20px;
+}
+.inputFile .am-list-item .am-list-line{
+    padding-right:34px;
+}
+.inputFile .am-list-item .am-list-line .am-list-content{
+    font-size: 32px;
+    color: #333333;
+    padding-left:32px;
+}
+.inputFile .am-list-item .am-list-line .am-list-extra{
+    font-size: 32px;
+    color: #999999;
+}
+.inputFile .am-list-item .am-list-line .am-list-arrow{
+    width:32px;
+    height:32px;
+}
+.inputFile .am-list-item{
+    height:98px;
+    padding-left:0;
+}
+.inputFile .hadInputFile{
+    height:auto;
+}

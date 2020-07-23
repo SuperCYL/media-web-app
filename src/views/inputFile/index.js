@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { NavBar,List,DatePicker,Picker} from 'antd-mobile';
 
+import Api from '../../request/api'
 import './style.css';
 
 const Item = List.Item;
@@ -22,6 +23,24 @@ class InputFile extends Component {
         },
       ]
     }
+    
+  }
+  componentWillMount(){
+    this.getRecordData();
+  }
+  getRecordData(){
+
+    let params = {
+      mobile: localStorage.getItem("globalAccount"),
+      limit: 10,
+      page: 1
+    };
+    Api.getRecordList(params).then(res => {
+      if (res.resp_code === 0) {
+        console.log(res.datas.data)
+      }
+    });
+
   }
   render() {
     // const { getFieldProps } = this.props.form;

@@ -1,5 +1,6 @@
 import http from './http';
-// import Qs from 'qs';
+import Qs from 'qs';
+import { removeNull } from '../utils/filter';
 
 const Api = {
     
@@ -19,6 +20,15 @@ const Api = {
             // data: 'phoneCode'
         })
     },
-        
+
+    //获取投稿记录
+    getRecordList: (params) => {
+        return http({
+            url: '/api-editingChannels/editingManuscript/list?' + Qs.stringify(removeNull(params)),
+            method: 'get',
+            // typeM: '1',
+            // data: removeNull(params)
+        })
+    },
 }
 export default Api;

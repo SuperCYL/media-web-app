@@ -50,24 +50,3 @@
 .inputFile .draft .am-list-line .am-list-extra {
     color: #FF8406;
 }
-.am-picker-popup-item{
-    font-size: 30px!important;
-}
-.am-picker-popup-header {
-    height:80px;
-}
-.am-picker-col-indicator{
-    height: 60px!important;
-    line-height: 60px!important;
-}
-.am-picker-col-item-selected,.am-picker-col-item{
-    height: 60px!important;
-    line-height: 60px!important;
-    font-size: 30px!important;
-}
-.am-picker-col-item{
-    color: #999!important;
-}
-.am-picker-col-item-selected{
-    color: #333!important;
-}

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './style.scss';
-
+import Api from '../../request/api'
 
 class Login extends Component {
   constructor(props){
@@ -31,6 +31,16 @@ class Login extends Component {
   }
   getLoginCode(){
     this.codeSetInterval();
+    let params = {
+      mobile: this.state.phoneVal,
+      type: 1
+    };
+    Api.getSmsCode(params).then(res => {
+      if (res.resp_code == 0) {
+          debugger;        
+      }
+    });
+
   }
 
   codeSetInterval() {

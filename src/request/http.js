@@ -53,12 +53,12 @@ service.interceptors.response.use(response => {
 
         if (error.response && error.response.status) {
             if (error.response.status == 401) {
-                authError(error.response.data.resp_msg)
+                // authError(error.response.data.resp_msg)
                 setTimeout(() => {
 
                 }, 1000)
             } else {
-                authError(error.response.data.resp_msg ? error.response.data.resp_msg : '出现问题，请重试')
+                // authError(error.response.data.resp_msg ? error.response.data.resp_msg : '出现问题，请重试')
             }
         }
         // 如果需要通过服务端返回的数据在组件内进行判定，由于拦截器是reject的错误，并不能在组件中读取err信息，可以改reject为 resolve 并且返回err.response

@@ -1,7 +1,7 @@
 import http from './http';
 // import Qs from 'qs';
 
-const userApi = {
+const Api = {
     
     getSmsCode: (params) => {
         console.log(params);
@@ -13,4 +13,4 @@ const userApi = {
     },
         
 }
-export default userApi;
+export default Api;

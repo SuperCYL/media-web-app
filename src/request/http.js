@@ -36,7 +36,7 @@ service.interceptors.response.use(response => {
 
     const res = response.data
     if (response.status === 200) {
-        if (res.resp_code !== 0 && res.resp_code && res.resp_code != 401) {
+        if (res.resp_code !== 0 && res.resp_code && res.resp_code !== 401) {
 
         }
         if (res.resp_code === 401 || res.resp_code === 404) {
@@ -52,7 +52,7 @@ service.interceptors.response.use(response => {
     error => {
 
         if (error.response && error.response.status) {
-            if (error.response.status == 401) {
+            if (error.response.status === 401) {
                 // authError(error.response.data.resp_msg)
                 setTimeout(() => {
 

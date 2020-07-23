@@ -36,7 +36,7 @@ class Login extends Component {
       type: 1
     };
     Api.getSmsCode(params).then(res => {
-      if (res.resp_code == 0) {
+      if (res.resp_code === 0) {
           debugger;        
       }
     });

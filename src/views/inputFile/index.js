@@ -1,26 +1,56 @@
 import React,{Component} from 'react';
-import { NavBar,List} from 'antd-mobile';
+import { NavBar,List,DatePicker,Picker} from 'antd-mobile';
+// import enUs from 'antd-mobile/lib/date-picker/locale/en_US';
 
 import './style.css';
 
 const Item = List.Item;
 
 class InputFile extends Component {
-  
+  constructor(props){
+    super(props);
+    this.state = {
+      date:"",
+      status:"",
+      statusList:[
+        {
+          label: '草稿',
+          value: '1',
+        },
+        {
+          label: '已投稿',
+          value: '2',
+        },
+      ]
+    }
+  }
   render() {
+    // const { getFieldProps } = this.props.form;
     return (
       <div className="inputFile">
             <NavBar
               mode="light"
-              onLeftClick={() => console.log('onLeftClick')}
               rightContent={[
                 <span className="iconfont icongerensucai"></span>
               ]}
             >社会治理融媒云投稿平台</NavBar>
             <div className="content">
               <List className="my-list">
-                <Item extra="请选择" arrow="horizontal" onClick={() => {}}>选择时间</Item>
-                <Item extra="请选择" arrow="horizontal" onClick={() => {}}>投稿状态</Item>
+                <DatePicker
+                  value={this.state.date}
+                  onChange={date => this.setState({ date })}
+                >
+                  <Item arrow="horizontal">选择时间</Item>
+                </DatePicker>
+
+                <Picker 
+                  data={this.state.statusList}
+                  value={this.state.status}
+                  onChange={val => this.setState({ status:val })}
+                  >
+                  <Item extra="请选择" arrow="horizontal">投稿状态</Item>
+                </Picker>
+                
               </List>
 
               <List className="my-list">

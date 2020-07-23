@@ -50,3 +50,6 @@
 .inputFile .draft .am-list-line .am-list-extra {
     color: #FF8406;
 }
+.inputFile .am-picker-popup-item{
+    font-size: 30px!important;
+}

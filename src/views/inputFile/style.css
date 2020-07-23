@@ -41,3 +41,12 @@
 .inputFile .hadInputFile{
     height:auto;
 }
+.inputFile .hadInputFile .am-list-content{
+    font-size: 30px;
+}
+.inputFile .hadTime .am-list-line .am-list-extra {
+    color: #3CB666;
+}
+.inputFile .draft .am-list-line .am-list-extra {
+    color: #FF8406;
+}

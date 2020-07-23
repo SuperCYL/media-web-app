@@ -46,6 +46,7 @@ class InputFile extends Component {
                 <Picker 
                   data={this.state.statusList}
                   value={this.state.status}
+                  cols={1}
                   onChange={val => this.setState({ status:val })}
                   >
                   <Item extra="请选择" arrow="horizontal">投稿状态</Item>
@@ -65,7 +66,7 @@ class InputFile extends Component {
 
               <List className="my-list">
                 <Item wrap className="hadInputFile">今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？朋友圈堪比“赏春今天何处春意浓？朋友圈堪比“赏春大赛”！你参与了吗？今天何处春意浓？今天何处春意浓？今天何处春意浓？</Item>
-                <Item className="draft" extra={'已投稿'}>2020-09-30 12:30:30</Item>
+                <Item className="draft" extra={'草稿'}>2020-09-30 12:30:30</Item>
               </List>
 
             </div>

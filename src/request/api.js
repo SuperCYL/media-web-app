@@ -3,13 +3,11 @@ import http from './http';
 
 const Api = {
     
-    getSmsCode: (params) => {
-        console.log(params);
-        
+    getVerificationCode: (params, loginType) => {
         return http({
-            url: `/api-uaa/validata/smsCode/${params.mobile}/${params.type}`,
+            url: '/api-uaa/validata/smsCode/' + params + '/1?LoginType=2',
             method: 'get',
-        });
+        })
     },
         
 }

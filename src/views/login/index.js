@@ -31,11 +31,9 @@ class Login extends Component {
   }
   getLoginCode(){
     this.codeSetInterval();
-    let params = {
-      mobile: this.state.phoneVal,
-      type: 1
-    };
-    Api.getSmsCode(params).then(res => {
+
+    let params = this.state.phoneVal;
+    Api.getVerificationCode(params).then(res => {
       if (res.resp_code === 0) {
           debugger;        
       }

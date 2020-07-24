@@ -46,7 +46,9 @@ class InputFile extends Component {
         })
       }
     });
-
+  }
+  selectStatus(){
+    console.log(this.state.status);
   }
   render() {
     // const { getFieldProps } = this.props.form;
@@ -72,6 +74,8 @@ class InputFile extends Component {
                   value={this.state.status}
                   cols={1}
                   onChange={val => this.setState({ status:val })}
+                  onOk={this.selectStatus.bind(this)}
+                  onDismiss={() => this.setState({ status: '' })}
                   >
                   <Item extra="请选择" arrow="horizontal">投稿状态</Item>
                 </Picker>
@@ -97,7 +101,7 @@ class InputFile extends Component {
 
             </div>
           
-
+            <div className="footer">新建投稿</div>
       </div>
     )
   }

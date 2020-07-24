@@ -50,3 +50,19 @@
 .inputFile .draft .am-list-line .am-list-extra {
     color: #FF8406;
 }
+.inputFile .footer{
+    width:750px;
+    height:98px;
+    line-height: 98px;
+    background:linear-gradient(-90deg,rgba(2,134,254,1),rgba(3,170,255,1));
+    position: fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    font-size: 34px;
+    text-align: center;
+    color: #fff;
+}
+.inputFile .am-list-item .am-list-line .am-list-extra{
+    flex-basis:auto;
+}

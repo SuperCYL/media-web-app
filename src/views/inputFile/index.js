@@ -1,5 +1,8 @@
 import React,{Component} from 'react';
+import { createForm } from 'rc-form';
 import {List,DatePicker,Picker} from 'antd-mobile';
+
+
 
 import Api from '../../request/api'
 import './style.css';
@@ -30,9 +33,10 @@ class InputFile extends Component {
   componentWillMount(){
     this.getRecordData();
   }
-  getRecordData(){
+  getRecordData(manuStatus){
 
     let params = {
+      manuStatus: manuStatus,
       mobile: localStorage.getItem("globalAccount"),
       limit: 10,
       page: 1
@@ -46,11 +50,14 @@ class InputFile extends Component {
       }
     });
   }
-  selectStatus(){
-    console.log(this.state.status);
+  selectStatus=(v)=>{
+    let manuStatus = v[0];
+    this.getRecordData(manuStatus);
   }
   render() {
-   
+
+    const { getFieldProps } = this.props.form;
+
     return (
       <div className="inputFile">
             <div className="header">社会治理融媒云投稿平台<span className="iconfont icongerensucai"></span></div>
@@ -65,11 +72,14 @@ class InputFile extends Component {
 
                 <Picker 
                   data={this.state.statusList}
-                  value={this.state.status}
+                  // value={this.state.status}
                   cols={1}
-                  onChange={val => this.setState({ status:val })}
+                  // onChange={val => this.setState({ status:val })}
                   onOk={this.selectStatus.bind(this)}
                   onDismiss={() => this.setState({ status: '' })}
+                  {...getFieldProps("district", {
+                    initialValue: [this.state.statusList],
+                  })}
                   >
                   <Item extra="请选择" arrow="horizontal">投稿状态</Item>
                 </Picker>
@@ -101,4 +111,4 @@ class InputFile extends Component {
   
 }
 
-export default InputFile;
+export default createForm()(InputFile);

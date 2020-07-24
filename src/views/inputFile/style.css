@@ -17,7 +17,7 @@
     color: #333;
 }
 .inputFile .content{
-    margin-top:118px;
+    margin:118px 0;
 }
 .inputFile .icongerensucai{
     position: absolute;
@@ -77,4 +77,20 @@
 }
 .inputFile .am-list-item .am-list-line .am-list-extra{
     flex-basis:auto;
+}
+.inputFile .imgs{
+    margin-top:20px;
+}
+.inputFile .imgs li{
+    width:25%;
+    float: left;
+    margin-bottom:20px;
+}
+.inputFile .imgs li img{
+    width:160px;
+    height:160px;
+    object-fit: cover;
+}
+.inputFile .imgItemLabel{
+    height:auto!important;
 }

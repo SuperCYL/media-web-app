@@ -155,6 +155,20 @@ class InputFile extends Component {
                   return(
                     <List className="my-list" key={i}>
                       <Item wrap className="hadInputFile">{v.manuTitle}</Item>
+                      <Item wrap className="imgItemLabel">
+                        <ul className="imgs clearfloat">
+                          {
+                              v.fileVoList.map((k,j)=>{
+                                
+                              return(
+                                <li><img src={k.url} /></li>
+                                
+                              )
+                              
+                            })
+                          }
+                        </ul>
+                      </Item>
                       <Item className={v.manuStatus===1?'draft':'hadTime'} extra={v.manuStatus===1?'草稿':'已投稿'}>{v.updateTime}</Item>
                     </List>
                   )

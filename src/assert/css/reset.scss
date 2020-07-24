@@ -53,3 +53,15 @@ input:-ms-input-placeholder {
 .am-toast-text-info{
   font-size:30px;
 }
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0
+}
+
+.clearfloat {
+  zoom: 1
+}

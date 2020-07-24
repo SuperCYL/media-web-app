@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { NavBar,List,DatePicker,Picker} from 'antd-mobile';
+import {List,DatePicker,Picker} from 'antd-mobile';
 
 import Api from '../../request/api'
 import './style.css';
@@ -28,7 +28,7 @@ class InputFile extends Component {
     
   }
   componentWillMount(){
-    this.getRecordData();
+    // this.getRecordData();
   }
   getRecordData(){
 
@@ -39,7 +39,6 @@ class InputFile extends Component {
     };
     Api.getRecordList(params).then(res => {
       if (res.resp_code === 0) {
-        console.log(res.datas.data)
         this.setState({
           submitTotal:res.datas.submitTotal,
           records:res.datas.data.records
@@ -51,15 +50,10 @@ class InputFile extends Component {
     console.log(this.state.status);
   }
   render() {
-    // const { getFieldProps } = this.props.form;
+   
     return (
       <div className="inputFile">
-            <NavBar
-              mode="light"
-              rightContent={[
-                <span className="iconfont icongerensucai"></span>
-              ]}
-            >社会治理融媒云投稿平台</NavBar>
+            <div className="header">社会治理融媒云投稿平台</div>
             <div className="content">
               <List className="my-list">
                 <DatePicker
@@ -84,7 +78,6 @@ class InputFile extends Component {
 
               <List className="my-list">
                 <Item extra={this.state.submitTotal}>累计发稿</Item>
-                {/* <Item extra={'121篇'}>累计录用</Item> */}
               </List>
 
               {

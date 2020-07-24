@@ -45,5 +45,8 @@
 .createFile .am-input-item .am-input-label{
     font-size: 32px;
     color: #333333;
-    padding-left:18px;
+    padding-left:32px;
+}
+.createFile .am-list-item .am-input-control input{
+    font-size:30px;
 }

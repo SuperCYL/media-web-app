@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { List ,Picker,InputItem} from 'antd-mobile';
-import { createForm } from 'rc-form';
 
 import './style.css'
 
@@ -27,11 +26,10 @@ export class CreateFile extends Component {
     createFileBack(){
         this.props.history.push('/InputFile');
     }
-    validateAccount(){
-
+    tittleChange=(val)=>{
+        console.log(val);
     }
     render() {
-        const { getFieldProps } = this.props.form;
         return (
             <div className="createFile">
                 <div className="header"><span className='iconfont iconarrow-left-bold' onClick={this.createFileBack.bind(this)}/>新建稿件</div>
@@ -48,13 +46,7 @@ export class CreateFile extends Component {
                         </Picker>
 
                         <InputItem
-                            {...getFieldProps('tittle', {
-                                // initialValue: 'little ant',
-                                rules: [
-                                { required: true, message: '请输入' },
-                                { validator: this.validateAccount },
-                                ],
-                            })}
+                            onChange={this.tittleChange.bind(this)}
                             placeholder="请输入"
                             >标题</InputItem>
  
@@ -66,4 +58,4 @@ export class CreateFile extends Component {
     }
 }
 
-export default createForm()(CreateFile)
+export default CreateFile

@@ -13,17 +13,17 @@ class InputFile extends Component {
   constructor(props){
     super(props);
     this.state = {
-      date:"",
-      status:"",
+      date:[],
+      status:[],
       statusList:[
-        {
-          label: '草稿',
-          value: '1',
-        },
-        {
-          label: '已投稿',
-          value: '2',
-        },
+        {label: '草稿',value: '1',},
+        {label: '已投稿',value: '2',},
+      ],
+      dateList:[
+        { label: "最近一周内", value: "1" },
+        { label: "最近半月内", value: "2" },
+        { label: "最近一月内", value: "3" },
+        { label: "选择所有", value: "4" }
       ],
       submitTotal:"",
       records:[]
@@ -33,11 +33,13 @@ class InputFile extends Component {
   componentWillMount(){
     this.getRecordData();
   }
-  getRecordData(manuStatus){
+  getRecordData(){
 
     let params = {
-      manuStatus: manuStatus,
+      manuStatus: this.state.status.join(''),
       mobile: localStorage.getItem("globalAccount"),
+      endTime: this.state.endTime,
+      beginTime: this.state.beginTime,
       limit: 10,
       page: 1
     };
@@ -50,10 +52,36 @@ class InputFile extends Component {
       }
     });
   }
+  //投稿状态
   selectStatus=(v)=>{
-    let manuStatus = v[0];
-    this.getRecordData(manuStatus);
+    this.setState({status:v},()=>{
+      this.getRecordData();
+    })
   }
+  //取消->投稿状态
+  cancelStatus(){
+    this.setState({status:[]},()=>{
+      this.getRecordData();
+    })
+    
+  }
+  //选择时间
+  selectDate=(v)=>{
+    
+    this.setState({date:v},()=>{
+      this.getRecordData();
+    })
+    
+  }
+  //取消->选择时间
+  cancelDate(){
+    this.setState({date:[]},()=>{
+      this.getRecordData();
+    })
+    
+  }
+
+
   render() {
 
     const { getFieldProps } = this.props.form;
@@ -63,20 +91,26 @@ class InputFile extends Component {
             <div className="header">社会治理融媒云投稿平台<span className="iconfont icongerensucai"></span></div>
             <div className="content">
               <List className="my-list">
-                <DatePicker
+
+                <Picker 
+                  data={this.state.dateList}
+                  cols={1}
                   value={this.state.date}
-                  onChange={date => this.setState({ date })}
-                >
-                  <Item arrow="horizontal">选择时间</Item>
-                </DatePicker>
+                  onOk={this.selectDate.bind(this)}
+                  onDismiss={this.cancelDate.bind(this)}
+                  {...getFieldProps("district", {
+                    initialValue: [this.state.statusList],
+                  })}
+                  >
+                  <Item extra="请选择" arrow="horizontal">选择时间</Item>
+                </Picker>
 
                 <Picker 
                   data={this.state.statusList}
-                  // value={this.state.status}
                   cols={1}
-                  // onChange={val => this.setState({ status:val })}
+                  value={this.state.status}
                   onOk={this.selectStatus.bind(this)}
-                  onDismiss={() => this.setState({ status: '' })}
+                  onDismiss={this.cancelStatus.bind(this)}
                   {...getFieldProps("district", {
                     initialValue: [this.state.statusList],
                   })}

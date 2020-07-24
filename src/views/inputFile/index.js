@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 import { createForm } from 'rc-form';
-import {List,DatePicker,Picker} from 'antd-mobile';
+import {List,Picker} from 'antd-mobile';
 
 
 
 import Api from '../../request/api'
 import './style.css';
+
+import { timestampToTime } from '../../utils/filter';
 
 const Item = List.Item;
 
@@ -26,7 +28,9 @@ class InputFile extends Component {
         { label: "选择所有", value: "4" }
       ],
       submitTotal:"",
-      records:[]
+      records:[],
+      beginTime:"",
+      endTime:""
     }
     
   }
@@ -38,8 +42,8 @@ class InputFile extends Component {
     let params = {
       manuStatus: this.state.status.join(''),
       mobile: localStorage.getItem("globalAccount"),
-      endTime: this.state.endTime,
       beginTime: this.state.beginTime,
+      endTime: this.state.endTime,
       limit: 10,
       page: 1
     };
@@ -67,12 +71,40 @@ class InputFile extends Component {
   }
   //选择时间
   selectDate=(v)=>{
-    
-    this.setState({date:v},()=>{
-      this.getRecordData();
-    })
-    
+    let t = v.join('');
+    if (t == 1) {
+      this.setState({
+        beginTime:timestampToTime(new Date().getTime()),
+        endTime:timestampToTime(new Date().getTime() - 7 * 24 * 60 * 60 * 1000)
+      },()=>{
+        this.getRecordData();
+      })
+    } else if (t == 2) {
+      this.setState({
+        beginTime:timestampToTime(new Date().getTime()),
+        endTime:timestampToTime(new Date().getTime() - 15 * 24 * 60 * 60 * 1000)
+      },()=>{
+        this.getRecordData();
+      })
+    } else if (t == 3) {
+      this.setState({
+        beginTime:timestampToTime(new Date().getTime()),
+        endTime:timestampToTime(new Date().getTime() - 30 * 24 * 60 * 60 * 1000)
+      },()=>{
+        this.getRecordData();
+      })
+    } else {
+      this.setState({
+        beginTime:'',
+        endTime:''
+      },()=>{
+        this.getRecordData();
+      })
+    }
+
   }
+
+
   //取消->选择时间
   cancelDate(){
     this.setState({date:[]},()=>{

@@ -6,6 +6,13 @@
   "description": "融媒云移动端字体图标",
   "glyphs": [
     {
+      "icon_id": "15838561",
+      "name": "arrow-left-bold",
+      "font_class": "arrow-left-bold",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
       "icon_id": "14767316",
       "name": "个人素材",
       "font_class": "gerensucai",

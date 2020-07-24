@@ -114,7 +114,9 @@ class InputFile extends Component {
     })
     
   }
-
+  createFileEvent(){
+    this.props.history.push('/createFile');
+  }
 
   render() {
 
@@ -183,7 +185,7 @@ class InputFile extends Component {
 
             </div>
           
-            <div className="footer">新建投稿</div>
+            <div className="footer" onClick={this.createFileEvent.bind(this)}>新建投稿</div>
       </div>
     )
   }

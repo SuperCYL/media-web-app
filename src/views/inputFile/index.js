@@ -161,7 +161,12 @@ class InputFile extends Component {
                               v.fileVoList.map((k,j)=>{
                                 
                               return(
-                                <li><img src={k.url} /></li>
+                                <li>
+                                  {
+                                  k.contentType=='image/png'?<img src={k.url} />:<video src={k.url} />
+                                }
+                                  
+                                </li>
                                 
                               )
                               

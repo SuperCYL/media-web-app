@@ -18,3 +18,23 @@
     position: absolute;
     left:32px;
 }
+.createFile .content{
+    margin:118px 0;
+}
+.createFile .am-list-item{
+    height:98px;
+    padding-left:0;
+}
+.createFile .am-list-item .am-list-line .am-list-content{
+    font-size: 32px;
+    color: #333333;
+    padding-left:32px;
+}
+.createFile .am-list-item .am-list-line .am-list-extra{
+    font-size: 32px;
+    color: #333;
+}
+.createFile .am-list-item .am-list-line .am-list-arrow{
+    width:32px;
+    height:32px;
+}

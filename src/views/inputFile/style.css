@@ -20,6 +20,10 @@
     margin-top:118px;
 }
 .inputFile .icongerensucai{
+    position: absolute;
+    right:40px;
+}
+.inputFile .icongerensucai{
     font-size: 38px;
 }
 .inputFile .my-list{

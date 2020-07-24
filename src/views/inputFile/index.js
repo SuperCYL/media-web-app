@@ -53,7 +53,7 @@ class InputFile extends Component {
    
     return (
       <div className="inputFile">
-            <div className="header">社会治理融媒云投稿平台</div>
+            <div className="header">社会治理融媒云投稿平台<span className="iconfont icongerensucai"></span></div>
             <div className="content">
               <List className="my-list">
                 <DatePicker

@@ -1,8 +1,5 @@
 import React,{Component} from 'react';
-import { createForm } from 'rc-form';
 import {List,Picker} from 'antd-mobile';
-
-
 
 import Api from '../../request/api'
 import './style.css';
@@ -108,7 +105,11 @@ class InputFile extends Component {
 
   //取消->选择时间
   cancelDate(){
-    this.setState({date:[]},()=>{
+    this.setState({
+      date:[],
+      beginTime:"",
+      endTime:""
+    },()=>{
       this.getRecordData();
     })
     
@@ -116,8 +117,6 @@ class InputFile extends Component {
 
 
   render() {
-
-    const { getFieldProps } = this.props.form;
 
     return (
       <div className="inputFile">
@@ -131,9 +130,6 @@ class InputFile extends Component {
                   value={this.state.date}
                   onOk={this.selectDate.bind(this)}
                   onDismiss={this.cancelDate.bind(this)}
-                  // {...getFieldProps("district", {
-                  //   initialValue: [this.state.dateList],
-                  // })}
                   >
                   <Item extra="请选择" arrow="horizontal">选择时间</Item>
                 </Picker>
@@ -144,9 +140,6 @@ class InputFile extends Component {
                   value={this.state.status}
                   onOk={this.selectStatus.bind(this)}
                   onDismiss={this.cancelStatus.bind(this)}
-                  // {...getFieldProps("district", {
-                  //   initialValue: [this.state.statusList],
-                  // })}
                   >
                   <Item extra="请选择" arrow="horizontal">投稿状态</Item>
                 </Picker>
@@ -178,4 +171,4 @@ class InputFile extends Component {
   
 }
 
-export default createForm()(InputFile);
+export default InputFile;

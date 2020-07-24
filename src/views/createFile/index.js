@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { List ,Picker} from 'antd-mobile';
+import { List ,Picker,InputItem} from 'antd-mobile';
+import { createForm } from 'rc-form';
+
 import './style.css'
 
 const Item = List.Item;
@@ -25,21 +27,38 @@ export class CreateFile extends Component {
     createFileBack(){
         this.props.history.push('/InputFile');
     }
+    validateAccount(){
+
+    }
     render() {
+        const { getFieldProps } = this.props.form;
         return (
             <div className="createFile">
                 <div className="header"><span className='iconfont iconarrow-left-bold' onClick={this.createFileBack.bind(this)}/>新建稿件</div>
                 <div className="content">
                     <List className="my-list">
                         <Picker 
-                        data={this.state.fileTypeList}
-                        cols={1}
-                        value={this.state.fileType}
-                        onOk={this.fileTypeOk.bind(this)}
-                        onDismiss={this.fileTypeDis.bind(this)}
-                        >
-                        <Item extra="请选择" arrow="horizontal">投稿类型</Item>
+                            data={this.state.fileTypeList}
+                            cols={1}
+                            value={this.state.fileType}
+                            onOk={this.fileTypeOk.bind(this)}
+                            onDismiss={this.fileTypeDis.bind(this)}
+                            >
+                            <Item extra="请选择" arrow="horizontal">投稿类型</Item>
                         </Picker>
+
+                        <InputItem
+                            {...getFieldProps('tittle', {
+                                // initialValue: 'little ant',
+                                rules: [
+                                { required: true, message: '请输入' },
+                                { validator: this.validateAccount },
+                                ],
+                            })}
+                            placeholder="请输入"
+                            >标题</InputItem>
+ 
+
                     </List>
                 </div>
             </div>
@@ -47,4 +66,4 @@ export class CreateFile extends Component {
     }
 }
 
-export default CreateFile
+export default createForm()(CreateFile)

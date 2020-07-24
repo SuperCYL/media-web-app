@@ -38,3 +38,12 @@
     width:32px;
     height:32px;
 }
+.createFile .am-list-item.am-input-item{
+    height:98px;
+    padding-left:0;
+}
+.createFile .am-input-item .am-input-label{
+    font-size: 32px;
+    color: #333333;
+    padding-left:18px;
+}

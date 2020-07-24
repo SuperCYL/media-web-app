@@ -71,6 +71,7 @@ class InputFile extends Component {
   }
   //选择时间
   selectDate=(v)=>{
+    this.setState({date:v})
     let t = v.join('');
     if (t == 1) {
       this.setState({
@@ -100,7 +101,7 @@ class InputFile extends Component {
       },()=>{
         this.getRecordData();
       })
-    }
+    };
 
   }
 
@@ -130,9 +131,9 @@ class InputFile extends Component {
                   value={this.state.date}
                   onOk={this.selectDate.bind(this)}
                   onDismiss={this.cancelDate.bind(this)}
-                  {...getFieldProps("district", {
-                    initialValue: [this.state.statusList],
-                  })}
+                  // {...getFieldProps("district", {
+                  //   initialValue: [this.state.dateList],
+                  // })}
                   >
                   <Item extra="请选择" arrow="horizontal">选择时间</Item>
                 </Picker>
@@ -143,9 +144,9 @@ class InputFile extends Component {
                   value={this.state.status}
                   onOk={this.selectStatus.bind(this)}
                   onDismiss={this.cancelStatus.bind(this)}
-                  {...getFieldProps("district", {
-                    initialValue: [this.state.statusList],
-                  })}
+                  // {...getFieldProps("district", {
+                  //   initialValue: [this.state.statusList],
+                  // })}
                   >
                   <Item extra="请选择" arrow="horizontal">投稿状态</Item>
                 </Picker>

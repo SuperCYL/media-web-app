@@ -163,7 +163,7 @@ class InputFile extends Component {
                               return(
                                 <li>
                                   {
-                                  k.contentType=='image/png'?<img src={k.url} />:<video src={k.url} />
+                                  k.contentType=='image/png'?<img src={k.url} />:<video controls> <source src={k.url} type="video/mp4" /></video>
                                 }
                                   
                                 </li>

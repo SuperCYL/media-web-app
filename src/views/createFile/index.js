@@ -9,9 +9,8 @@ export class CreateFile extends Component {
         this.state={
             fileType:[],
             fileTypeList:[
-                {
-                    lable:"",value:""
-                }
+                { label: "图文", value: 1 },
+                { label: "视频", value: 2 }
             ]
         }
     }

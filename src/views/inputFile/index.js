@@ -28,7 +28,7 @@ class InputFile extends Component {
     
   }
   componentWillMount(){
-    // this.getRecordData();
+    this.getRecordData();
   }
   getRecordData(){
 
@@ -41,7 +41,7 @@ class InputFile extends Component {
       if (res.resp_code === 0) {
         this.setState({
           submitTotal:res.datas.submitTotal,
-          records:res.datas.data.records
+          records:res.datas.data
         })
       }
     });

@@ -1,32 +1,11 @@
 import React, { Component } from 'react'
 import { List ,Picker,InputItem} from 'antd-mobile';
 
-import { Upload, Button, message } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
-import reqwest from 'reqwest';
 
 import './style.css'
-// import { ajax } from 'jquery';
+import { ajax } from 'jquery';
 
 
-
-const props = {
-    name: 'file',
-    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-    headers: {
-      authorization: localStorage.getItem("access_token"),
-    },
-    onChange(info) {
-      if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
-      }
-      if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
-      } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
-      }
-    },
-  };
 const Item = List.Item;
 export class CreateFile extends Component {
     constructor(props){
@@ -37,8 +16,7 @@ export class CreateFile extends Component {
                 { label: "图文", value: 1 },
                 { label: "视频", value: 2 }
             ],
-            fileList: [],
-            uploading: false,
+            files: [],
         }
     }
     
@@ -56,29 +34,26 @@ export class CreateFile extends Component {
     tittleChange=(val)=>{
         console.log(val);
     }
-   
+    handleImageUpload=(e)=>{
+        e.preventDefault()
+        const {files} = this.state;
+        let formData = new FormData();
+        formData.append('file', e.target.files[0]);
+
+        debugger;
+        ajax({
+            type: 'POST',
+            url: "http://xxxx/import_csv",
+            data: formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            success: function (ret) {
+                alert(ret);
+            }
+        });
+    }
     render() {
-        const { uploading, fileList } = this.state;
-        const props = {
-            onRemove: file => {
-              this.setState(state => {
-                const index = state.fileList.indexOf(file);
-                const newFileList = state.fileList.slice();
-                newFileList.splice(index, 1);
-                return {
-                  fileList: newFileList,
-                };
-              });
-            },
-            beforeUpload: file => {
-              this.setState(state => ({
-                fileList: [...state.fileList, file],
-              }));
-              return false;
-            },
-            fileList,
-          };
-      
       
         return (
             <div className="createFile">
@@ -103,12 +78,7 @@ export class CreateFile extends Component {
                     <List className="my-list">
                         <textarea rows="5" placeholder="正文:"></textarea>   
                         <Item className="img-item">
-
-                        <Upload {...props}>
-                            <Button>
-                            <UploadOutlined /> Click to Upload
-                            </Button>
-                        </Upload>
+                            <input type="file" id="fileId" onChange={this.handleImageUpload.bind(this)}/>
                             
                         </Item> 
                     </List>

@@ -28,7 +28,7 @@ class Login extends Component {
     })
   }
   loginEvent(){
-
+    localStorage.removeItem('access_token','');
     let params = {
       deviceId: this.state.phoneVal,
       validCode: this.state.codeVal

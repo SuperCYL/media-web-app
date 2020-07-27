@@ -50,3 +50,25 @@
 .createFile .am-list-item .am-input-control input{
     font-size:30px;
 }
+.createFile .my-list{
+    margin-top:20px;
+}
+.createFile textarea{
+    border: none;
+    width: 100%;
+    padding:20px;
+    font-size:30px;
+}
+.createFile .img-ul li{
+    width:25%;
+    height: 200px;
+    float: left;
+    
+}
+.createFile .img-ul li img{
+    width:200px;
+    height:200px;
+}
+.createFile .img-item{
+    height:240px;
+}

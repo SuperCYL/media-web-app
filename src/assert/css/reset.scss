@@ -25,7 +25,26 @@ input:-ms-input-placeholder {
   color: #c2c2c2; 
   font-size: 30px;
 }
-
+textarea::-webkit-input-placeholder { 
+  /* WebKit browsers */ 
+  color: #333333; 
+  font-size: 30px;
+} 
+textarea:-moz-placeholder { 
+/* Mozilla Firefox 4 to 18 */ 
+color: #333333; 
+font-size: 30px;
+} 
+textarea::-moz-placeholder { 
+/* Mozilla Firefox 19+ */ 
+color: #333333; 
+font-size: 30px;
+} 
+textarea:-ms-input-placeholder { 
+/* Internet Explorer 10+ */ 
+color: #333333; 
+font-size: 30px;
+}
 .am-picker-popup-item{
   font-size: 30px!important;
 }

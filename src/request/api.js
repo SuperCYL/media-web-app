@@ -5,9 +5,9 @@ import { removeNull } from '../utils/filter';
 const Api = {
     
     //获取验证码
-    getVerificationCode: (params, loginType) => {
+    getVerificationCode: (params) => {
         return http({
-            url: '/api-uaa/validata/smsCode/' + params + '/1?LoginType=2',
+            url: '/api-uaa/validata/smsCode/' + params + '/1?uType=H5',
             method: 'get',
         })
     },

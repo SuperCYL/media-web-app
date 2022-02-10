@@ -74,7 +74,7 @@
     "test": "node scripts/test.js"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "postcss-pxtorem": "^5.1.1",
     "sass-loader": "^9.0.2"
   },
